@@ -32,6 +32,10 @@ video.addEventListener("ended", showPlayIcon);
 
 // Progress Bar ---------------------------------- //
 
+// UPDATE PROGRESS BAR AS VIDEO PLAYS
+function updateProgress() {
+  progressBar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+}
 // Volume Controls --------------------------- //
 
 // Change Playback Speed -------------------- //
@@ -41,3 +45,5 @@ video.addEventListener("ended", showPlayIcon);
 // EVENT LISTENERS
 playBtn.addEventListener("click", togglePlay);
 video.addEventListener("click", togglePlay);
+video.addEventListener("timeupdate", updateProgress);
+video.addEventListener("canplay", updateProgress);
